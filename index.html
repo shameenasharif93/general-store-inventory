@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Low Stock Alert System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="login-container" id="loginPage">
+    <h1>General Store</h1>
+    <h2>Stock Alert System</h2>
+
+    <div id="loginSection">
+        <h3>User Login</h3>
+
+        <form id="loginForm">
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Enter username" required>
+
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Enter password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p>Don't have an account?</p>
+        <button type="button" onclick="showRegister()">Register</button>
+    </div>
+
+    <div id="registerSection" style="display: none;">
+        <h3>Create Account</h3>
+
+        <form id="registerForm">
+            <label>Username</label>
+            <input type="text" id="newUsername" placeholder="Create username" required>
+
+            <label>Password</label>
+            <input type="password" id="newPassword" placeholder="Create password" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <button type="button" onclick="showLogin()">Back to Login</button>
+    </div>
+
+    <p id="loginMessage"></p>
+</div>
+    <h1>Low Stock Alert System</h1>
+    <p>General Store Inventory Management</p>
+<h2>Dashboard</h2>
+
+<div class="dashboard">
+    <div class="card">
+        <h3>Total Products</h3>
+        <p id="totalProducts">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Low Stock Products</h3>
+        <p id="lowStockProducts"
+   onclick="showLowStockProducts()"
+   style="cursor: pointer;">
+   0
+</p>
+    </div>
+
+    <div class="card">
+        <h3>In Stock Products</h3>
+        <p id="inStockProducts">0</p>
+    </div>
+</div>
+<div id="lowStockList" style="display: none;">
+    <h3>⚠️ Low Stock Products List</h3>
+    <div id="lowStockDetails"></div>
+</div>
+    <h2>Add Product</h2>
+
+    <form id="productForm">
+        <label>Product Name:</label>
+        <input type="text" id="productName"
+               placeholder="Enter product name" required>
+
+        <label>Quantity:</label>
+        <input type="number" id="quantity"
+               placeholder="Enter quantity" min="0" required>
+
+        <label>Low Stock Limit:</label>
+        <input type="number" id="limit"
+               value="25" min="0" required>            
+        <button type="submit">Add Product</button>
+    </form>
+    <h2>Product Inventory</h2>
+    <div class="search-box">
+    <input
+        type="text"
+        id="searchProduct"
+        placeholder="🔍 Search products by name..."
+        onkeyup="searchProducts()"
+    >
+</div>
+
+<table id="productTable">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Low Stock Limit</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="productList">
+    </tbody>
+</table>
+
+<div id="alertMessage"></div>
+<h2>Update Stock</h2>
+
+<label>Product Name:</label>
+<input type="text" id="updateName" placeholder="Enter product name">
+
+<label>New Quantity:</label>
+<input type="number" id="updateQuantity" min="0" placeholder="Enter new quantity">
+
+<button type="button" onclick="updateStock()">Update Stock</button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
